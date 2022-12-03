@@ -59,6 +59,7 @@ priorities = {
 
 def part1():
     sum_of_priorities = 0
+
     for line in file:
         first_half = line[:len(line)//2]
         second_half = line[len(line)//2:]
@@ -70,11 +71,13 @@ def part1():
     print(sum_of_priorities)
 
 def part2():
+    lines = file.read().split('\n')
     sum_of_priorities = 0
 
-    for line1, line2, line3 in zip(file, file, file):
-        for letter in line1:
-            if letter in line2 and letter in line3:
+    for i in range(0, len(lines), 3):
+        group = lines[i:(i+3)]
+        for letter in group[0]:
+            if letter in group[1] and letter in group[2]:
                 sum_of_priorities += priorities[letter]
                 break
     print(sum_of_priorities)
