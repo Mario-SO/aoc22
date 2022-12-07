@@ -18,6 +18,7 @@ def part1():
     print(fully_contained)
 
 def part2():
+    pass
 
 if __name__ == '__main__':
     part1()
